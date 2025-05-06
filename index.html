@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Score Analyzer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe4ec, #ffd6f5);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h2 {
+      text-align: center;
+      color: deeppink;
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      color: deeppink;
+    }
+
+    .form-control {
+      background-color: #fff5f9;
+      border: 1px solid #ffc0cb;
+      border-radius: 12px;
+    }
+
+    .btn-custom {
+      background: lightpink;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 20px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-custom:hover {
+      background: lightpink;
+    }
+
+    #output {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+      color: deeppink;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>find out how well you're doing </h2>
+
+  <label class="form-label">science</label>
+  <input type="number" class="form-control mb-3" id="science" placeholder="enter your science score">
+
+  <label class="form-label">math</label>
+  <input type="number" class="form-control mb-3" id="math" placeholder="enter your math score">
+
+  <label class="form-label">english</label>
+  <input type="number" class="form-control mb-3" id="english" placeholder="enter your english score">
+
+  <button onclick="getRating()" class="btn btn-custom w-100">get ur rating</button>
+
+  <div id="output">enter a number to find out your score HERE!</div>
+</div>
+
+<script>
+function getRating() {
+  let sci = parseInt(document.getElementById("science").value);
+  let math = parseInt(document.getElementById("math").value);
+  let eng = parseInt(document.getElementById("english").value);
+  let avg = Math.round((sci + math + eng)/3);
+}
+  let rating = "";
+
+
+   switch (true) {
+    case (avg >= 90):
+      rating = "excellent! keep up the work";
+      break;
+
+    case (avg >= 85):
+      rating = "you're doing great!";
+      break;
+
+    case (avg >= 80):
+      rating = "we know you can do better";
+      break;
+
+    case (avg >= 75):
+      rating = "";
+      break;
+
+    case (avg < 75):  
+      rating = "awh shucks!";
+      break;
+
+      break;
+    default:
+      rating = "please enter a score";
+  }
+
+  document.getElementById("output").innerText = score rating;
+</script>
+
+</body>
+</html>
